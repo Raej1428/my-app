@@ -17,6 +17,7 @@
   background: rgb(56, 68, 64);
 }
 .card > .img-container > img {
+  border-radius: 13px;
   width: 77%;
 }
 
