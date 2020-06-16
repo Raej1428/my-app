@@ -21,12 +21,12 @@ class Counter extends Component {
     } this.state.cards.forEach(card => {
       card.count = 0;
     });
-    alert(`Game over!!! \nscore: ${this.state.score}`)
-    this.setState.score({ score: 0 });
+    alert(`Game over!!! \nscore: ${this.state.score}`);
+    this.setState({ score: 0 });
     return true;
   };
 
-  // clickcounter handles the counting of the cards and the game operation
+  // clickcounter handles the counting of the cards and the sort cards operation
   clickCounter = id => {
     this.state.cards.find((o, i) => {
       if (o.id === id) {
