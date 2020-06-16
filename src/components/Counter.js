@@ -12,7 +12,7 @@ class Counter extends Component {
     score: 0,
     highscore: 0
   };
-//ends the game if score > highscore
+  //ends the game if score > highscore
   itsGameOver = () => {
     if (this.state.score > this.state.highscore) {
       this.setState({ highscore: this.state.score }, function () {
@@ -28,23 +28,20 @@ class Counter extends Component {
 
   // clickcounter handles the counting of the cards and the game operation
   clickCounter = id => {
-      
     this.state.cards.find((o, i) => {
       if (o.id === id) {
-        if(cards[i].count === 0){
+        if (cards[i].count === 0) {
           cards[i].count = cards[i].count + 1;
-          this.setState({score : this.state.score + 1}, function(){
+          this.setState({ score: this.state.score + 1 }, function () {
             console.log(this.state.score);
+            this.state.cards.sort(() => Math.random() - 0.5)
+            return true;
           });
-          this.state.cards.sort(() => Math.random() - 0.5)
-          return true; 
         } else {
-          this.gameOver();
+          this.itsGameOver();
           return false;
         }
-        
       };
-
     });
   }
   render() {
@@ -53,7 +50,7 @@ class Counter extends Component {
         <Header score={this.state.score} highscore={this.state.highscore}>Llamma Try?</Header>
         {this.state.cards.map(card => (
           <Card
-            clickCount={this.clickCount}
+            clickCounter={this.clickCounter}
             id={card.id}
             key={card.id}
             image={card.image}
